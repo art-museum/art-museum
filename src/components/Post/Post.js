@@ -3,12 +3,14 @@ import './Post.css';
 
 const Post = (props) => (
 
-    <article>
+    <article className="art-container">
         <img src={props.url} alt="" />
-        <h1>{props.title}</h1>
-        <p>{props.artName}</p>
-        <div>{props.author}</div>
-        <button onClick={props.clicked}>show more</button>
+        <div className="info-box">
+            <h1>{props.title}</h1>
+            <p>{props.artName}</p>
+            <div>{props.author}</div>
+            <button onClick={props.clicked}>Show More</button>
+        </div>
     </article>
 );
 

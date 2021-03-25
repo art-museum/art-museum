@@ -1,6 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap");
+* {
+  font-family: Aleo;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+header {
+  background: white;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  z-index: 101;
+  padding: 25px;
+}
+
+.header-elements {
+  display: flex;
+}
+
+header nav {
+  display: none;
+}
+
+.art-search {
+  margin-right: 25px;
+}
+
+.art-search input[type="text"] {
+  all: unset;
+  width: 100px;
+  height: 50px;
+  border: 2px solid black;
+  text-align: left;
+  padding-left: 10px;
+  transition: 0.2s;
+}
+
+.art-search input[type="text"]:focus {
+  width: 200px;
+  margin-left: -100px;
+  transition: 0.2s;
+}
+
+.art-search button[type="submit"] {
+  all: unset;
+  cursor: pointer;
+  padding: 0;
+  height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  background: black;
+  color: white;
+  margin: 0;
+}
+
+.art-options {
+  border: 2px solid black;
+  background: black;
+  color: white;
+  height: 50px;
+  padding: 0 5px;
+  text-align: center;
+}
+
+.art-options:focus {
+  outline: none;
+}
+
 .post-list-container {
   height: 100vh;
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+.post-list-container-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 120px;
+  justify-content: center;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 5px;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  height: 50px;
+  width: 70px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateY(-50%) translateX(35px);
 }
