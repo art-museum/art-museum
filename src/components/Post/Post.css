@@ -13,14 +13,19 @@
 
 .post-list-container-vertical .art-container {
   width: 400px;
-  max-height: 400px;
+  height: 300px;
   margin: 50px 50px;
   position: relative;
   border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .post-list-container-vertical .art-container img {
-  height: 300px;
+  max-width: 396px;
+  height: auto;
+  max-height: 296px;
 }
 
 .post-list-container-vertical .info-box {

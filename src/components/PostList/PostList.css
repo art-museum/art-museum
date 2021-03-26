@@ -138,12 +138,123 @@ input:checked + .slider {
   background-color: black;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px black;
+input:checked + .slider:before {
+  transform: translateY(-50%) translateX(35px);
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateY(-50%) translateX(35px);
+@media screen and (max-width: 900px) {
+  header {
+    top: unset;
+    bottom: 0;
+    padding: 5px;
+    height: 60px;
+  }
+
+  .header-elements {
+    position: relative;
+    height: 100%;
+    align-items: center;
+  }
+
+  .art-search input[type="text"] {
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .art-search input[type="text"]:focus {
+    width: 100px;
+    margin-left: 0;
+  }
+
+  .art-search button[type="submit"] {
+    height: 30px;
+    width: 30px;
+  }
+
+  .art-options {
+    height: 30px;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+  }
+
+  .slider {
+    height: 15px;
+    width: 30px;
+  }
+
+  .slider:before {
+    height: 5px;
+    width: 5px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateY(-50%) translateX(17px);
+  }
+
+  .post-list-container .art-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0 25px;
+    margin: 0;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .post-list-container .art-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+
+  .post-list-container .info-box {
+    bottom: 100px;
+  }
+
+  .post-list-container-vertical {
+    margin-top: 15px;
+    margin-bottom: 80px;
+    width: 100vw;
+  }
+
+  .post-list-container-vertical .art-container {
+    width: 80vw;
+    height: 40vh;
+    margin: 0 25px;
+    margin-bottom: 100px;
+    position: relative;
+    border: 2px solid black;
+  }
+
+  .post-list-container-vertical .art-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 39vh;
+  }
+
+  .post-list-container-vertical .info-box {
+    padding: 5px;
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -70px;
+    margin-bottom: 25px;
+  }
+
+  .info-box div {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  .info-box button {
+    font-size: 10px;
+  }
 }
