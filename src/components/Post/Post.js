@@ -5,7 +5,7 @@ import './Post.css';
 const Post = (props) => (
 
     <article className="art-container">
-        <img src={props.url} alt="" />
+        <img src={props.url} alt="img" />
         <div className="info-box">
             <h1>{props.title}</h1>
             <p>{props.artName}</p>

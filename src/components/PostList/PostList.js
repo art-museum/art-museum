@@ -9,7 +9,7 @@ class PostList extends Component {
     state = {
         posts: ['init'],
         selectedPostId: null,
-        category: 'Mosaics&Text&Prints&Paintings&Drawings',
+        category: 'Prints&Paintings&Drawings',
         entry: '',
         error: false,
         isViewVertical: false
@@ -17,7 +17,7 @@ class PostList extends Component {
 
     //classification= Paintings
     componentDidMount () {
-        axios.get(`https://api.harvardartmuseums.org/object?classification=${this.state.category}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=300`)
+        axios.get(`https://api.harvardartmuseums.org/object?classification=${this.state.category}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&size=100&page=1&sort=random`)
         .then(response => {
             console.log(response)
             this.setState({posts: response.data.records});
@@ -36,7 +36,7 @@ class PostList extends Component {
     
     postCategoryHandler = (event) => {
         //console.log(event.target.value)
-        axios.get(`https://api.harvardartmuseums.org/object?classification=${event.target.value}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=15`)
+        axios.get(`https://api.harvardartmuseums.org/object?classification=${event.target.value}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=100`)
         .then(response => {
             console.log(response)
             this.setState({posts: response.data.records});
@@ -54,7 +54,7 @@ class PostList extends Component {
     onFormSubmit = (event) => {
         event.preventDefault()
         console.log(this.state.entry);
-        axios.get(`https://api.harvardartmuseums.org/object?title=${this.state.entry}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=20`)
+        axios.get(`https://api.harvardartmuseums.org/object?title=${this.state.entry}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=100`)
         .then(response => {
             console.log(response)
             this.setState({posts: response.data.records});
@@ -70,14 +70,13 @@ class PostList extends Component {
             //return [post.classification, post.id]
             return (
                 <>
-                    {post.primaryimageurl != null && post.imagecount !== 0 && post.title !== 0 ?
+                    {post.verificationlevel === 3 && post.primaryimageurl != null && post.imagecount !== 0 && post.title !== 0 ?
                         <Link to={'/' + post.id} key={post.id}>
                             <Post
                                 url={post.primaryimageurl}
                                 author={post.title}
                                 clicked={() => this.postSelectedHandler(post.id)}
                             />
-
                         </Link>
                     : null
                     }
@@ -105,9 +104,9 @@ class PostList extends Component {
                             <option value="Paintings">Paintings</option>
                             <option value="Drawings">Drawings</option>
                         </select>
-                        <label class="switch">
+                        <label className="switch">
                             <input type="checkbox" onClick={ () => this.setState({isViewVertical: !this.state.isViewVertical}) } />
-                            <span class="slider"></span>
+                            <span className="slider"></span>
                         </label>
                     </div>
 
@@ -119,7 +118,7 @@ class PostList extends Component {
                     </nav>
                 </header>
                 <main>
-                    <section className={ this.state.isViewVertical ? 'post-list-container-vertical' : 'post-list-container'} >
+                    <section className={ this.state.isViewVertical ? 'post-list-container-vertical' : 'post-list-container'}>
                     {posts.length > 0 ? posts : 
                             <div>
                                 <h1>Sorry nothing found</h1>

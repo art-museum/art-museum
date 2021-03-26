@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './PostDetail.css';
 
@@ -27,7 +26,7 @@ class PostDetail extends Component {
       }
 
     render() {
-        let post = <p style={{ textAlign: 'center' }}>select one pic to test</p>;
+        let post = <p style={{ textAlign: 'center' }}>loaded</p>;
         if (this.props.id) {
             post = <p style={{ textAlign: 'center' }}>Loading...!</p>;
         }
@@ -46,12 +45,12 @@ class PostDetail extends Component {
 
                     <article className="info-detail">
                         <div>
-                            <h3>People</h3>
-                            {/* <p>{this.state.loadedPost.people[0].displayname}</p> */}
+                            <h3>Author</h3>
+                            <p>{this.state.loadedPost.people[0].displayname}</p>
                             <br />
 
                             <h3>Classification</h3>
-                            <p>{this.state.loadedPost.Classification}</p>
+                            <p>{this.state.loadedPost.classification}</p>
                             <br />
 
                             <h3>Date</h3>
