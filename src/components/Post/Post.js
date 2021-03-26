@@ -1,6 +1,7 @@
 import React from 'react';
 import './Post.css';
 
+
 const Post = (props) => (
 
     <article className="art-container">

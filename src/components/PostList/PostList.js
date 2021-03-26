@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Post from '../Post/Post';
 import './PostList.css';
+import anass from '../img/mona_anass.png';
 
 class PostList extends Component {
     state = {
-        posts: [],
+        posts: ['init'],
         selectedPostId: null,
         category: 'Mosaics&Text&Prints&Paintings&Drawings',
         entry: '',
+        error: false,
         isViewVertical: false
     }
 
@@ -19,6 +21,10 @@ class PostList extends Component {
         .then(response => {
             console.log(response)
             this.setState({posts: response.data.records});
+        })
+        .catch(error => {
+            console.log(error);
+            this.setState({error: true})
         })
     }
 
@@ -34,6 +40,10 @@ class PostList extends Component {
         .then(response => {
             console.log(response)
             this.setState({posts: response.data.records});
+        })
+        .catch(error => {
+            console.log(error);
+            this.setState({error: true})
         })
     }
 
@@ -52,25 +62,29 @@ class PostList extends Component {
     }
 
     render() {
+        let posts = <h1 style={{textAlign: 'center'}}>Something...!</h1>
         // console.log(this.state.isViewVertical)
-        const posts = this.state.posts.map(post => {
+        if (!this.state.error) {
+        posts = this.state.posts.map(post => {
             //console.log(post);
             //return [post.classification, post.id]
             return (
                 <>
-                {post.primaryimageurl!= null && post.imagecount !== 0 && post.title !== 0 ? 
-                <Link to={'/' + post.id} key={post.id}>
-                    <Post 
-                        url={post.primaryimageurl}
-                        author={post.title}
-                        clicked={() => this.postSelectedHandler(post.id)}
-                    />
-                        
-                </Link>
-                : null}
+                    {post.primaryimageurl != null && post.imagecount !== 0 && post.title !== 0 ?
+                        <Link to={'/' + post.id} key={post.id}>
+                            <Post
+                                url={post.primaryimageurl}
+                                author={post.title}
+                                clicked={() => this.postSelectedHandler(post.id)}
+                            />
+
+                        </Link>
+                    : null
+                    }
                 </>
             );
         })
+    }
 
         return (
             <>
@@ -106,7 +120,11 @@ class PostList extends Component {
                 </header>
                 <main>
                     <section className={ this.state.isViewVertical ? 'post-list-container-vertical' : 'post-list-container'} >
-                        {posts}
+                    {posts.length > 0 ? posts : 
+                            <div>
+                                <h1>Sorry nothing found</h1>
+                                <img src={anass} alt="no resultes"/>
+                            </div>}
                     </section>
                 </main>
             </>

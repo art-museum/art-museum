@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './PostDetail.css';
 
-
 class PostDetail extends Component {
+
     state = {
         loadedPost: null
     }
@@ -20,6 +21,10 @@ class PostDetail extends Component {
             }
         }
     }
+
+    handleClick() {
+        this.props.history.push('/');
+      }
 
     render() {
         let post = <p style={{ textAlign: 'center' }}>select one pic to test</p>;
@@ -65,6 +70,10 @@ class PostDetail extends Component {
                             <h3>Dimensions</h3>
                             <p>{this.state.loadedPost.dimensions}</p>
                         </div>
+                        <button type="button" onClick={() => this.handleClick()}>
+                            XXX
+                        </button>
+                        
                     </article>
 
                 </main>
