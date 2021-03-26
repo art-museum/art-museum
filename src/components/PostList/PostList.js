@@ -138,7 +138,7 @@ class PostList extends Component {
                         </label>
                     </div>
                 </div>
-                <main>
+                <div>
                     <section className={ this.state.isViewVertical ? 'post-list-container-vertical' : 'post-list-container'}>
                     {posts.length > 0 ? posts : 
                             <div>
@@ -148,7 +148,7 @@ class PostList extends Component {
                             </div>}
                         {posts}
                     </section>
-                </main>
+                </div>
             </>
         );
     }
