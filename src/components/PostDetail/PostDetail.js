@@ -32,14 +32,14 @@ class PostDetail extends Component {
         }
         if (this.state.loadedPost) {
             post = (
-                <main>
+                <main className="details">
                     <article className="pic-detail">
                         <figure>
-                            <img src={this.state.loadedPost.primaryimageurl} alt="" />
                             <figcaption>
                                 <h1>{this.state.loadedPost.title}</h1>
                                 <p>{this.state.loadedPost.period}</p>
                             </figcaption>
+                            <img src={this.state.loadedPost.primaryimageurl} alt="" />
                         </figure>
                     </article>
 
@@ -59,19 +59,18 @@ class PostDetail extends Component {
 
                             <h3>Culture</h3>
                             <p>{this.state.loadedPost.culture}</p>
-                        </div>
-
-                        <div>
+                            <br />
                             <h3>Medium</h3>
                             <p>{this.state.loadedPost.medium}</p>
                             <br />
 
                             <h3>Dimensions</h3>
                             <p>{this.state.loadedPost.dimensions}</p>
+                            <br />
+                            <button type="button" onClick={() => this.handleClick()}>
+                            Go Back
+                            </button>
                         </div>
-                        <button type="button" onClick={() => this.handleClick()}>
-                            XXX
-                        </button>
                         
                     </article>
 

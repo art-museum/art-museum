@@ -21,14 +21,36 @@ header {
   height: 100px;
   z-index: 101;
   padding: 25px;
+  width: 100%;
 }
 
 .header-elements {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.logo-img {
+  background: url(../img/Logo.png);
+  height: 50px;
+  width: 50px;
+  background-size: contain;
 }
 
 header nav {
   display: none;
+}
+
+.filter {
+  display: flex;
 }
 
 .art-search {
@@ -81,8 +103,8 @@ header nav {
   display: flex;
   align-items: center;
   width: 100%;
-  overflow-y: hidden;
   position: relative;
+  pointer-events: none;
 }
 
 .post-list-container-vertical {
@@ -90,6 +112,16 @@ header nav {
   flex-wrap: wrap;
   margin-top: 120px;
   justify-content: center;
+  pointer-events: none;
+}
+
+.switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.switch-wrapper p {
+  margin-right: 10px;
 }
 
 /* The switch - the box around the slider */
@@ -97,7 +129,7 @@ header nav {
   position: relative;
   display: inline-block;
   width: 60px;
-  height: 34px;
+  height: 50px;
 }
 
 /* Hide default HTML checkbox */
@@ -149,11 +181,11 @@ input:checked + .slider:before {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  margin-top: 45px;
+  margin-top: 217px;
 }
 
 section > div > h1 {
-  font-size: 36px;
+  font-size: 28px;
   margin-bottom: 25px;
 }
 
@@ -163,31 +195,38 @@ section > div h2 {
   margin-bottom: 25px;
 }
 
+.mobile-header {
+  display: none;
+}
+
 @media screen and (max-width: 900px) {
   body {
-    width: 100vw;
+    max-height: 100vh;
+    position: relative;
   }
   header {
     top: unset;
     bottom: 0;
     padding: 5px;
     height: 60px;
+    width: 100vw;
   }
 
   .header-elements {
     position: relative;
     height: 100%;
     align-items: center;
+    justify-content: center;
   }
 
   .art-search input[type="text"] {
-    width: 60px;
+    width: 100px;
     height: 30px;
     font-size: 12px;
   }
 
   .art-search input[type="text"]:focus {
-    width: 60px;
+    width: 100px;
     margin-left: 0;
   }
 
@@ -198,6 +237,39 @@ section > div h2 {
 
   .art-options {
     height: 30px;
+  }
+
+  header .switch-wrapper {
+    display: none;
+  }
+
+  header .logo {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    padding: 0 15px;
+    background: white;
+    z-index: 105;
+    width: 100vw;
+  }
+
+  .mobile-header .logo {
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .mobile-header .logo .logo-img {
+    height: 30px;
+    width: 30px;
   }
 
   .switch {
@@ -230,6 +302,7 @@ section > div h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: hidden;
   }
 
   .post-list-container .art-container img {
@@ -243,7 +316,7 @@ section > div h2 {
   }
 
   .post-list-container-vertical {
-    margin-top: 15px;
+    margin-top: 65px;
     margin-bottom: 80px;
     width: 100vw;
   }
@@ -282,7 +355,7 @@ section > div h2 {
     font-size: 10px;
   }
 
-  /* .post-list-container > div {
+  .post-list-container > div {
     display: inline-block;
     position: absolute;
     left: 50%;
@@ -294,7 +367,7 @@ section > div h2 {
   }
 
   section > div > h1 {
-    font-size: 36px;
+    font-size: 24px;
     margin-bottom: 15px;
   }
 
@@ -307,5 +380,14 @@ section > div h2 {
   section > div > img {
     max-width: 80%;
     height: auto;
-  } */
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-detail > div {
+    position: relative;
+  }
 }

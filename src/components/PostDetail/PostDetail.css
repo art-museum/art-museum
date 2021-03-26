@@ -1,13 +1,46 @@
 main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .pic-detail {
   width: 50vw;
+  margin-top: 50px;
+  margin-left: 25px;
+  margin-right: 50px;
+  margin-bottom: 1%;
+}
+
+figcaption {
+  margin-bottom: 50px;
 }
 
 .pic-detail img {
   width: 100%;
+  height: auto;
+}
+
+.info-detail {
+  position: relative;
+  width: 50vw;
+}
+
+.info-detail > div {
+  position: sticky;
+  top: 150px;
+}
+
+.info-detail button[type="button"] {
+  all: unset;
+  cursor: pointer;
+  margin-top: 25px;
+  border: 2px solid black;
+  padding: 15px 25px;
+  font-size: 24px;
+  transition: 0.2s;
+}
+
+.info-detail button:hover {
+  color: white;
+  background: black;
+  transition: 0.2s;
 }

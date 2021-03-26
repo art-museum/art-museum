@@ -89,25 +89,34 @@ class PostList extends Component {
             <>
                 <header className="header-container">
                     <div className="header-elements">
-                        <div className="art-search">
-                            <form onSubmit={this.onFormSubmit}>
-                                <input type="text" placeholder="Search for Title" onChange={(event) => this.setState({ entry: event.target.value })}
+                        <a href="./" className="logo">
+                            <div className="logo-img"></div>
+                            <h1 className="site-title">Artify</h1>
+                        </a>
+                        <div className="filter">
+                            <div className="art-search">
+                                <form onSubmit={this.onFormSubmit}>
+                                    <input type="text" placeholder="Search for Title" onChange={(event) => this.setState({ entry: event.target.value })}
                                 value={this.state.entry}
                                 />
-                                <button type="submit">➝</button>
-                            </form>
-                        </div>
+                                    <button type="submit">➝</button>
+                                </form>
+                            </div>
 
-                        <select value={this.state.value} onChange={this.postCategoryHandler} className="art-options" >
-                            <option value="Mosaics&Paintings&Prints&Drawings">Show all</option>
-                            <option value="Prints">Prints</option>
-                            <option value="Paintings">Paintings</option>
-                            <option value="Drawings">Drawings</option>
-                        </select>
-                        <label className="switch">
-                            <input type="checkbox" onClick={ () => this.setState({isViewVertical: !this.state.isViewVertical}) } />
-                            <span className="slider"></span>
-                        </label>
+                            <select value={this.state.value} onChange={this.postCategoryHandler} className="art-options" >
+                                <option value="Mosaics&Paintings&Prints&Drawings">Show all</option>
+                                <option value="Prints">Prints</option>
+                                <option value="Paintings">Paintings</option>
+                                <option value="Drawings">Drawings</option>
+                            </select>
+                        </div>
+                        <div className="switch-wrapper">
+                            <p>Switch Layout:</p>
+                            <label className="switch">
+                                <input type="checkbox" onClick={ () => this.setState({isViewVertical: !this.state.isViewVertical}) } />
+                                <span className="slider"></span>
+                            </label>
+                        </div>
                     </div>
 
                     <nav>
@@ -117,6 +126,18 @@ class PostList extends Component {
                         </ul>
                     </nav>
                 </header>
+                <div className="mobile-header">
+                    <a href="./" className="logo">
+                        <div className="logo-img"></div>
+                        <h1 className="site-title">Artify</h1>
+                    </a>
+                    <div className="switch-wrapper">
+                        <p>Switch Layout:</p>
+                        <label className="switch">
+                            <input type="checkbox" onClick={ () => this.setState({isViewVertical: !this.state.isViewVertical}) } />     <span className="slider"></span>
+                        </label>
+                    </div>
+                </div>
                 <main>
                     <section className={ this.state.isViewVertical ? 'post-list-container-vertical' : 'post-list-container'}>
                     {posts.length > 0 ? posts : 
@@ -125,6 +146,7 @@ class PostList extends Component {
                                 <h2>Did you mean "Mona Anass"?</h2>
                                 <img src={anass} alt="no resultes"/>
                             </div>}
+                        {posts}
                     </section>
                 </main>
             </>
