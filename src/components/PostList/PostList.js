@@ -121,7 +121,8 @@ class PostList extends Component {
                     <section className={ this.state.isViewVertical ? 'post-list-container-vertical' : 'post-list-container'}>
                     {posts.length > 0 ? posts : 
                             <div>
-                                <h1>Sorry nothing found</h1>
+                                <h1>We couldn't find what you were looking for</h1>
+                                <h2>Did you mean "Mona Anass"?</h2>
                                 <img src={anass} alt="no resultes"/>
                             </div>}
                     </section>
